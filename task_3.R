@@ -60,10 +60,10 @@ model <- kknn(Class~., train=trainSet, test=testSet, k=best_k, kernel="rectangul
 
 
 # Построение таблицы сопряженности
-confusion_matrix <- confusionMatrix(table(predict(model), testSet$Class)
+confusion_matrix <- confusionMatrix(table(predict(model), testSet$Class))
 
 # Находим точность модели
-accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+accuracy <- sum(diag(confusion_matrix$table)) / sum(confusion_matrix$table)
 
 print(paste("Точность:", round(accuracy * 100, 2), "%"))
 
